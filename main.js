@@ -2,13 +2,11 @@ let valorPrestamo = parseFloat(prompt("Ingrese el valor del préstamo"));
 let tasaPactada = parseFloat(prompt("Ingrese la tasa pactada"));
 let cantidadCuotas = parseFloat(prompt("Ingrese la cantidad de cuotas"));
 
-let sigue = "si"
-
 function functionCuota (prestamo, interes, cuotas) {
     return prestamo * interes / (1 - Math.pow((1 + interes), -cuotas));
 }
 
-while (isNaN(valorPrestamo) || isNaN(tasaPactada) || isNaN(cantidadCuotas) && sigue){
+while (isNaN(valorPrestamo) || isNaN(tasaPactada) || isNaN(cantidadCuotas)){
     alert("Porfavor ingrese valores numéricos")
     valorPrestamo = parseFloat(prompt("Ingrese el valor del préstamo"));
     tasaPactada = parseFloat(prompt("Ingrese la tasa pactada"));
@@ -23,5 +21,3 @@ if (isNaN(valorPrestamo) || isNaN(cantidadCuotas) || isNaN(tasaPactada)) {
     
     alert(`Importe: ${valorPrestamo} um \nTipo de interés: ${tasaPactada} % \nPlazo de amortizacion: ${cantidadCuotas} \nCuota: ${cuota.toFixed(2)} um `)
 }
-
-sigue = prompt("¿Desea calcular otro prestamo?")
