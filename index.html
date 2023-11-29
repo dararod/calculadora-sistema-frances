@@ -9,32 +9,50 @@
 </head>
 
 <body>
-    <script src="main.js"></script>
-    <div>
-        <h1 class="text-2xl">Calculadora de cuota sistema Francés </h1>
+    <div class="flex items-center justify-center py-6">
+        <h1 class="text-3xl text-cyan-500">Calculadora de cuota sistema Francés </h1>
     </div>
-    <div>
-        <form action="" method="post" id="formulario">
-            <div>
-                <input required id="prestamo">
-                <label for="">
-                    Valor del préstamo
-                </label>
+    <div class="w-full h-screen bg-slate-300 p-10">
+        <form action="" id="formulario">
+            <div class="flex space-x-9">
+                <div>
+                    <label for="">
+                        Valor del préstamo
+                    </label>
+                    <input required id="prestamo" type="number">
+                </div>
+                <div>
+                    <label for="">
+                        Tasa Pactada
+                    </label>
+                    <input required id="tasa" type="number">
+                </div>
+                <div>
+                    <label for="">
+                        Cantidad de cuotas
+                    </label>
+                    <input required id="cuotas" type="number">
+                </div>
             </div>
-            <div>
-                <input required id="tasa">
-                <label for="">
-                    Tasa Pactada
-                </label>
-            </div>
-            <div>
-                <input required id="cuotas">
-                <label for="">
-                    Cantidad de cuotas
-                </label>
-            </div>
-            <button type="submit">Enviar</button>
+            <button class="bg-sky-500 p-2 text-white rounded-full mt-3" id="button" type="submit">Calcular Cuotas</button>
         </form>
+        <div class="mt-10">
+            <table>
+                <thead class="bg-white border">
+                    <tr>
+                        <th class="p-4 border text-left uppercase">Nº de Cuota</th>
+                        <th class="p-4 border font-medium text-left uppercase">Capital al inicio del período</th>
+                        <th class="p-4 border font-medium text-left uppercase">Amortización</th>
+                        <th class="p-4 border font-medium text-left uppercase">Intereses</th>
+                        <th class="p-4 border font-medium text-left uppercase">Cuota</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" class="bg-white">
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
+<script src="main.js"></script>
 </html>
