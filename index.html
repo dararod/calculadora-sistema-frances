@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        tr, td {
+            border: 1px solid rgb(203 213 225);
+        }
+    </style>
 </head>
 
 <body>
@@ -34,6 +40,7 @@
                 </div>
             </div>
             <button class="bg-sky-500 p-2 text-white rounded-full mt-3" id="button" type="submit">Calcular Cuotas</button>
+            <button class="bg-sky-500 p-2 text-white rounded-full mt-3" id="limpiarCache" type="button">Limpiar Cache</button>
         </form>
         <div class="mt-10">
             <table>
@@ -46,7 +53,7 @@
                         <th class="p-4 border font-medium text-left uppercase">Cuota</th>
                     </tr>
                 </thead>
-                <tbody id="tbody" class="bg-white">
+                <tbody id="listaCuotas" class="bg-white">
                 </tbody>
             </table>
         </div>
