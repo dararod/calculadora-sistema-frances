@@ -5,43 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
         tr, td {
             border: 1px solid rgb(203 213 225);
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
     <div class="flex items-center justify-center py-6">
-        <h1 class="text-3xl text-cyan-500">Calculadora de cuota sistema Francés </h1>
+        <h1 class="text-3xl text-cyan-500 drop-shadow-xl">Calculadora de cuota sistema Francés </h1>
+        <a href="/historial.html">Historial</a>
     </div>
-    <div class="w-full h-screen bg-slate-300 p-10">
-        <form action="" id="formulario">
-            <div class="flex space-x-9">
-                <div>
-                    <label for="">
-                        Valor del préstamo
-                    </label>
-                    <input required id="prestamo" type="number">
+    <div class="w-full h-screen bg-[#f9f8f7] flex flex-col items-center p-10">
+        <div class="drop-shadow-xl bg-white w-[50%]">
+            <form  class="p-10" id="formulario">
+                <div class="flex flex-wrap">
+                    <div class="flex flex-col w-[50%] pr-3">
+                        <label for="">
+                            Valor del préstamo
+                        </label>
+                        <input required placeholder="6000" class="p-2 rounded-md border" id="prestamo" type="number">
+                    </div>
+                    <div class="flex flex-col  w-[50%]">
+                        <label for="">
+                            Tasa Pactada
+                        </label>
+                        <input required placeholder="5" class="p-2 rounded-md border" id="tasa" type="number">
+                    </div>
+                    <div class="flex flex-col w-[49%]">
+                        <label class="pt-5" for="">
+                            Cantidad de cuotas
+                        </label>
+                        <input required placeholder="3" class="p-2 rounded-md border" id="cuotas" type="number">
+                    </div>
                 </div>
-                <div>
-                    <label for="">
-                        Tasa Pactada
-                    </label>
-                    <input required id="tasa" type="number">
-                </div>
-                <div>
-                    <label for="">
-                        Cantidad de cuotas
-                    </label>
-                    <input required id="cuotas" type="number">
-                </div>
-            </div>
-            <button class="bg-sky-500 p-2 text-white rounded-full mt-3" id="button" type="submit">Calcular Cuotas</button>
-            <button class="bg-sky-500 p-2 text-white rounded-full mt-3" id="limpiarCache" type="button">Limpiar Cache</button>
-        </form>
+                <button class="bg-sky-500 p-2 text-white rounded-md mt-3" id="button" type="submit">Calcular Cuotas</button>
+                <button class="bg-sky-500 p-2 text-white rounded-md mt-3" id="limpiarCache" type="button">Limpiar Cache</button>
+            </form>
+        </div>
         <div class="mt-10">
             <table>
                 <thead class="bg-white border">
@@ -58,6 +61,8 @@
             </table>
         </div>
     </div>
+
+    <script src=" https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js "></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="main.js"></script>
 </body>

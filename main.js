@@ -8,6 +8,28 @@ const BOTON_ENVIAR_FORM = document.getElementById("button");
 const BOTON_LIMPIAR_CACHE = document.getElementById("limpiarCache");
 const TABLE_ELEMENT = document.getElementById("listaCuotas");
 
+const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
+const tasaPactada = inputTasaPactada.valueAsNumber;
+const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
+
+// console.log(valorInicialPrestamo, tasaPactada, cantidadCuotas)
+
+// if (isNaN(valorInicialPrestamo) || isNaN(tasaPactada) || isNaN(calcularCuota)) {
+//     return Toastify({
+//         text: "Por favor ingrese valores numéricos",
+//         duration: 3000,
+//         newWindow: false,
+//         close: false,
+//         gravity: "top", // `top` or `bottom`
+//         position: "right", // `left`, `center` or `right`
+//         stopOnFocus: true, // Prevents dismissing of toast on hover
+//         style: {
+//           background: "linear-gradient(to right, #2980B9, #6DD5FA)",
+//         },
+//         onClick: function(){} // Callback after click
+//       }).showToast();
+// }
+
 function calcularCuota(prestamo, interes, cuotas) {
     return prestamo * interes / (1 - Math.pow((1 + interes), -cuotas));
 }
@@ -102,6 +124,19 @@ function calcularCuotasYMostrar() {
 BOTON_ENVIAR_FORM.addEventListener('click', (event) => {
     event.preventDefault();
     calcularCuotasYMostrar();
+    Toastify({
+        text: "Su cuota se ha calculado satisfactioriamente",
+        duration: 3000,
+        newWindow: false,
+        close: false,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #2980B9, #6DD5FA)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
 });
 
 BOTON_LIMPIAR_CACHE.addEventListener('click', () => {
