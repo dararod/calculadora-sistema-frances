@@ -7,15 +7,18 @@
     <title>Document</title>
     <style>
         tr, td {
-            border: 1px solid rgb(203 213 225);
+            border-bottom: 1px solid rgb(203 213 225);
+            padding-left: 1rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
-    <div class="flex items-center justify-center py-6">
-        <h1 class="text-3xl text-cyan-500 drop-shadow-xl">Calculadora de cuota sistema Francés </h1>
+    <div class="flex items-center justify-between py-6 drop-shadow-xl md:px-20 px-10">
+        <h1 class="text-3xl text-cyan-500">Calculadora de cuota sistema Francés </h1>
         <a href="/historial.html">Historial</a>
     </div>
     <div class="w-full h-screen bg-[#f9f8f7] flex flex-col items-center p-10">
@@ -41,19 +44,19 @@
                         <input required placeholder="3" class="p-2 rounded-md border" id="cuotas" type="number">
                     </div>
                 </div>
-                <button class="bg-sky-500 p-2 text-white rounded-md mt-3" id="button" type="submit">Calcular Cuotas</button>
-                <button class="bg-sky-500 p-2 text-white rounded-md mt-3" id="limpiarCache" type="button">Limpiar Cache</button>
+                <button class="bg-cyan-600 p-2 text-white rounded-md mt-3" id="button" type="submit">Calcular Cuotas</button>
+                <button class="bg-cyan-600 p-2 text-white rounded-md mt-3" id="limpiarCache" type="button">Limpiar Cache</button>
             </form>
         </div>
-        <div class="mt-10">
-            <table>
-                <thead class="bg-white border">
+        <div class="mt-10 w-[50%]">
+            <table class="w-full">
+                <thead class="bg-cyan-600 border text-white">
                     <tr>
-                        <th class="p-4 border font-medium text-left uppercase">Nº de Cuota</th>
-                        <th class="p-4 border font-medium text-left uppercase">Capital al inicio del período</th>
-                        <th class="p-4 border font-medium text-left uppercase">Amortización</th>
-                        <th class="p-4 border font-medium text-left uppercase">Intereses</th>
-                        <th class="p-4 border font-medium text-left uppercase">Cuota</th>
+                        <th class="p-4 font-medium text-left uppercase">Nº de Cuota</th>
+                        <th class="p-4 font-medium text-left uppercase">Capital al inicio del período</th>
+                        <th class="p-4 font-medium text-left uppercase">Amortización</th>
+                        <th class="p-4 font-medium text-left uppercase">Intereses</th>
+                        <th class="p-4 font-medium text-left uppercase">Cuota</th>
                     </tr>
                 </thead>
                 <tbody id="listaCuotas" class="bg-white">

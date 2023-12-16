@@ -1,1 +1,44 @@
-<h1>HOLA</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr, td {
+            border-bottom: 1px solid rgb(203 213 225);
+            padding-left: 1rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+    <div class="flex items-center justify-between py-6 drop-shadow-xl md:px-20 px-10">
+        <h1 class="text-3xl text-cyan-500">Historial de cuotas</h1>
+        <a class="" href="/">Volver</a>
+    </div>
+    <div class="w-full h-screen bg-[#f9f8f7] flex flex-col items-center p-10">
+        <div class="mt-10 w-[50%]">
+            <table class="w-full">
+                <thead class="bg-cyan-600 border text-white">
+                    <tr>
+                        <th class="p-4 font-medium text-left uppercase">Nº de Cuota</th>
+                        <th class="p-4 font-medium text-left uppercase">Capital al inicio del período</th>
+                        <th class="p-4 font-medium text-left uppercase">Amortización</th>
+                        <th class="p-4 font-medium text-left uppercase">Intereses</th>
+                        <th class="p-4 font-medium text-left uppercase">Cuota</th>
+                    </tr>
+                </thead>
+                <tbody id="listaCuotas" class="bg-white">
+                </tbody>
+            </table>
+    </div>
+    <script src=" https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js "></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="main.js"></script>
+</body>
+</html>

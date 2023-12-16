@@ -8,27 +8,9 @@ const BOTON_ENVIAR_FORM = document.getElementById("button");
 const BOTON_LIMPIAR_CACHE = document.getElementById("limpiarCache");
 const TABLE_ELEMENT = document.getElementById("listaCuotas");
 
-const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
-const tasaPactada = inputTasaPactada.valueAsNumber;
-const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
-
-// console.log(valorInicialPrestamo, tasaPactada, cantidadCuotas)
-
-// if (isNaN(valorInicialPrestamo) || isNaN(tasaPactada) || isNaN(calcularCuota)) {
-//     return Toastify({
-//         text: "Por favor ingrese valores numéricos",
-//         duration: 3000,
-//         newWindow: false,
-//         close: false,
-//         gravity: "top", // `top` or `bottom`
-//         position: "right", // `left`, `center` or `right`
-//         stopOnFocus: true, // Prevents dismissing of toast on hover
-//         style: {
-//           background: "linear-gradient(to right, #2980B9, #6DD5FA)",
-//         },
-//         onClick: function(){} // Callback after click
-//       }).showToast();
-// }
+// const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
+// const tasaPactada = inputTasaPactada.valueAsNumber;
+// const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
 
 function calcularCuota(prestamo, interes, cuotas) {
     return prestamo * interes / (1 - Math.pow((1 + interes), -cuotas));
@@ -79,7 +61,7 @@ function cargarDeCache() {
     return [];
 }
 
-function mostrarCuotas(listaCuotas) {
+function mostrarCuotas( listaCuotas) {
     listaCuotas.forEach((value) => {
         const tr = document.createElement("tr");
         const tdNCuota = document.createElement("td");
@@ -114,11 +96,13 @@ function calcularCuotasYMostrar() {
     const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
     const tasaPactada = inputTasaPactada.valueAsNumber;
     const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
-    const cuotas = generarListaCuotas(valorInicialPrestamo, cantidadCuotas, tasaPactada);
 
-    limpiarTabla();
-    mostrarCuotas(cuotas);
-    guardarEnCache(cuotas);
+        const cuotas = generarListaCuotas(valorInicialPrestamo, cantidadCuotas, tasaPactada);
+    
+        limpiarTabla();
+        mostrarCuotas(cuotas);
+        guardarEnCache(cuotas);
+
 }
 
 BOTON_ENVIAR_FORM.addEventListener('click', (event) => {
@@ -145,6 +129,6 @@ BOTON_LIMPIAR_CACHE.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
     const cuotas = cargarDeCache();
-
+    console.log(cuotas);
     mostrarCuotas(cuotas);
 });
