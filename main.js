@@ -5,7 +5,6 @@ const inputCantidadCuotas = document.getElementById("cuotas");
 
 const LOCAL_STORAGE_KEY = "Valores";
 const BOTON_ENVIAR_FORM = document.getElementById("button");
-const BOTON_LIMPIAR_CACHE = document.getElementById("limpiarCache");
 const TABLE_ELEMENT = document.getElementById("listaCuotas");
 
 // const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
@@ -114,17 +113,13 @@ BOTON_ENVIAR_FORM.addEventListener('click', (event) => {
         newWindow: false,
         close: false,
         gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
+        position: "left", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
           background: "linear-gradient(to right, #2980B9, #6DD5FA)",
         },
         onClick: function(){} // Callback after click
       }).showToast();
-});
-
-BOTON_LIMPIAR_CACHE.addEventListener('click', () => {
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
 });
 
 window.addEventListener('load', () => {
