@@ -61,7 +61,7 @@ function cargarDeCache() {
     return [];
 }
 
-function mostrarCuotas( listaCuotas) {
+function mostrarCuotas(listaCuotas) {
     listaCuotas.forEach((value) => {
         const tr = document.createElement("tr");
         const tdNCuota = document.createElement("td");
