@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        thead {
+            background-color: rgb(8 145 178);
+            color: white;
+
+        }
+
+        th {
+            padding: 16px;
+            font-weight: 500;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        tr,
+        td {
+            border-bottom: 1px solid rgb(203 213 225);
+            padding-left: 1rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+    <div class="flex items-center justify-between py-6 drop-shadow-xl md:px-20 px-10">
+        <h1 class="text-3xl text-cyan-500">Historial de cuotas</h1>
+        <a class="" href="/">Volver</a>
+    </div>
+    <div class="w-full h-screen bg-[#f9f8f7] flex flex-col items-center p-10">
+        <div class="flex">
+            <h3 class="text-3xl pr-5">Acá podrás ver un historial con tus últimos cálculos</h3>
+            <button id="eliminarCache"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                    viewBox="0 0 256 256">
+                    <path
+                        d="M216 48h-40v-8a24 24 0 0 0-24-24h-48a24 24 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16ZM96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Z" />
+                </svg></button>
+        </div>
+        <div id="listaCuotasHistorial" class="mt-10 w-[50%]">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js "></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="historial.js"></script>
+</body>
+
+</html>
