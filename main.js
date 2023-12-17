@@ -8,10 +8,6 @@ const LOCAL_STORAGE_KEY = "Valores";
 const BOTON_ENVIAR_FORM = document.getElementById("button");
 const TABLE_ELEMENT = document.getElementById("listaCuotas");
 
-// const valorInicialPrestamo = inputValorInicialPrestamo.valueAsNumber;
-// const tasaPactada = inputTasaPactada.valueAsNumber;
-// const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
-
 function calcularCuota(prestamo, interes, cuotas) {
     return prestamo * interes / (1 - Math.pow((1 + interes), -cuotas));
 }
