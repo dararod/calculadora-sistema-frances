@@ -2,6 +2,7 @@
 const inputValorInicialPrestamo = document.getElementById("prestamo");
 const inputTasaPactada = document.getElementById("tasa");
 const inputCantidadCuotas = document.getElementById("cuotas");
+const seccionComentarios = document.getElementById("seccionComentarios");
 
 const LOCAL_STORAGE_KEY = "Valores";
 const BOTON_ENVIAR_FORM = document.getElementById("button");
@@ -96,11 +97,11 @@ function calcularCuotasYMostrar() {
     const tasaPactada = inputTasaPactada.valueAsNumber;
     const cantidadCuotas = inputCantidadCuotas.valueAsNumber;
 
-        const cuotas = generarListaCuotas(valorInicialPrestamo, cantidadCuotas, tasaPactada);
-    
-        limpiarTabla();
-        mostrarCuotas(cuotas);
-        guardarEnCache(cuotas);
+    const cuotas = generarListaCuotas(valorInicialPrestamo, cantidadCuotas, tasaPactada);
+
+    limpiarTabla();
+    mostrarCuotas(cuotas);
+    guardarEnCache(cuotas);
 
 }
 
@@ -116,14 +117,44 @@ BOTON_ENVIAR_FORM.addEventListener('click', (event) => {
         position: "left", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-          background: "linear-gradient(to right, #2980B9, #6DD5FA)",
+            background: "linear-gradient(to right, #2980B9, #6DD5FA)",
         },
-        onClick: function(){} // Callback after click
-      }).showToast();
+        onClick: function () { } // Callback after click
+    }).showToast();
 });
 
 window.addEventListener('load', () => {
     const cuotas = cargarDeCache();
-    console.log(cuotas);
     mostrarCuotas(cuotas);
 });
+
+function getUsuarios(done) {
+    let url = 'https://jsonplaceholder.typicode.com/users'
+    const users = fetch(url);
+
+    users
+        .then(response => response.json())
+        .then(data => {
+            done(data);
+        })
+}
+
+getUsuarios(data => {
+    console.log(data)
+    data.forEach(usuarios => {
+        const article = document.createRange().createContextualFragment(`
+        <div class="h-32 p-4 my-10 rounded-md drop-shadow-md flex items-center w-[50%] bg-white">
+        <div class="bg-cyan-600 rounded-full h-16 w-16">
+            <img alt="">
+        </div>
+        <div class="pl-4 flex flex-col">
+            <span class="absolute top-8 font-semibold">${usuarios.name}</span>
+            <span class="font-light text-sm">${usuarios.email}</span>
+            <p></p>
+        </div>
+    </div>
+        `);
+        seccionComentarios.append(article);
+    })
+})
+
