@@ -143,7 +143,6 @@ function getImagenes(done) {
 
 getUsuarios(data => {
     getImagenes(datos => {
-        console.log(datos.results);
         data.forEach(usuarios => {
             const article = document.createRange().createContextualFragment(`
             <div class="h-32 p-4 my-10 rounded-md drop-shadow-md flex items-center w-[50%] bg-white">
