@@ -123,11 +123,6 @@ BOTON_ENVIAR_FORM.addEventListener('click', (event) => {
     }).showToast();
 });
 
-window.addEventListener('load', () => {
-    const cuotas = cargarDeCache();
-    mostrarCuotas(cuotas);
-});
-
 function getUsuarios(done) {
     let url = 'https://jsonplaceholder.typicode.com/users'
     const users = fetch(url);
@@ -139,22 +134,67 @@ function getUsuarios(done) {
         })
 }
 
+function getImagenes(done) {
+    let url = 'https://rickandmortyapi.com/api/character'
+    const imagenes = fetch(url);
+
+    imagenes
+        .then(response => response.json())
+        .then(datos => {
+            done(datos);
+        })
+}
+
 getUsuarios(data => {
-    console.log(data)
-    data.forEach(usuarios => {
-        const article = document.createRange().createContextualFragment(`
-        <div class="h-32 p-4 my-10 rounded-md drop-shadow-md flex items-center w-[50%] bg-white">
-        <div class="bg-cyan-600 rounded-full h-16 w-16">
-            <img alt="">
+    getImagenes(datos => {
+        console.log(datos.results);
+        data.forEach(usuarios => {
+            const article = document.createRange().createContextualFragment(`
+            <div class="h-32 p-4 my-10 rounded-md drop-shadow-md flex items-center w-[50%] bg-white">
+            <div class="bg-cyan-600 rounded-full h-16 w-16">
+                <img src=${datos.results[usuarios.id - 1].image} alt="avatar">
+            </div>
+            <div class="pl-4 flex flex-col">
+                <span class="absolute top-8 font-semibold">${usuarios.name}</span>
+                <span class="font-light text-sm mt-6">${usuarios.email}</span>
+                <p>${comentarios[usuarios.id - 1].mensaje}</p>
+            </div>
         </div>
-        <div class="pl-4 flex flex-col">
-            <span class="absolute top-8 font-semibold">${usuarios.name}</span>
-            <span class="font-light text-sm">${usuarios.email}</span>
-            <p></p>
-        </div>
-    </div>
-        `);
-        seccionComentarios.append(article);
+            `);
+            seccionComentarios.append(article);
+    })
     })
 })
 
+const comentarios = [
+    {
+        "mensaje": "Hola, me gusto mucho"
+    },
+    {
+        "mensaje": "Gracias funciona bien"
+    },
+    {
+        "mensaje": "El historial me salvo"
+    },
+    {
+        "mensaje": "Exlente!"
+    },
+    {
+        "mensaje": "Me salvaste en mi examen"
+    },
+    {
+        "mensaje": "Podrias subir la formula de como calcular?"
+    },
+    {
+        "mensaje": "Genial, justo lo que buscaba"
+    },
+    {
+        "mensaje": "Sube otras calculadoras de cuotas"
+    },
+    {
+        "mensaje": "Me gusta tu trabajo, podrias darme tu email de contacto?"
+    },
+    {
+        "mensaje": "Good Job!"
+    },
+]
